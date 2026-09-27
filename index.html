@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BPSC TRE 4 - Class 10 Ch1</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:#f5f7f5}.app{max-width:430px;margin:auto;background:#f5f7f5;min-height:100vh;position:relative}
+.top{display:flex;gap:12px;padding:16px}.card{margin:8px 16px;background:#fff;border:2.5px solid #1d6a38;border-radius:20px;padding:20px 12px;text-align:center}
+.card h1{font-size:20px;color:#0b3d1d;font-weight:900;line-height:1.2}.badge{display:inline-block;background:#e8f6eb;border:1.5px solid #4caf6e;color:#0b5a24;font-size:11px;font-weight:800;padding:6px 14px;border-radius:20px;margin-top:8px}
+.boxes{display:flex;gap:10px;margin-top:16px}.box{flex:1;background:#d8eedc;border:1.6px solid #4a8a5e;border-radius:14px;padding:10px 4px}.box p{font-size:11px;font-weight:800;color:#0b3d1d;margin-top:4px}
+.instr{margin:16px;background:#fff;border-radius:16px;padding:16px}.instr li{margin-left:16px;font-size:12.5px;margin-top:8px;list-style:disc;line-height:1.4}
+.btn{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:calc(100% - 28px);max-width:402px;background:#16a34a;color:#fff;border:none;padding:18px;border-radius:16px;font-weight:900}
+#page2,#page3{display:none}.gHead{background:#16a34a;color:#fff;padding:12px 14px;display:flex;justify-content:space-between}
+.qArea{padding:12px 14px 90px}.opt{border:1.7px solid #ddd;border-radius:12px;padding:12px;margin:8px 0;background:#fff;cursor:pointer;font-size:13.5px}.opt.sel{background:#0f5d2f;color:#fff;border-color:#0f5d2f}
+.btm{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:#fff;padding:10px;display:flex;gap:10px}.btm button{flex:1;padding:12px;border-radius:12px;font-weight:800}
+.completed{margin:14px;background:#0d6b28;border-radius:18px;padding:20px;color:#fff}.marks{font-size:24px;font-weight:900;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="app">
+<div id="page1">
+<div class="top"><span>←</span><b>START TEST</b></div>
+<div class="card"><h1>CHEMISTRY SET 1<br><span style="font-size:13px;font-weight:700;color:#555">Class 10 Ch-1: Chemical Reactions</span></h1><div class="badge">BPSC TRE 4 • Mock Test 1</div>
+<div class="boxes"><div class="box">📄<p>10 Questions</p></div><div class="box">🕒<p>10 Minutes</p></div><div class="box">⚠️<p>1/3 Negative</p></div></div></div>
+<div class="instr"><b>ⓘ निर्देश:</b><li>सभी 10 प्रश्न अनिवार्य हैं।</li><li>प्रत्येक गलत उत्तर के लिए <b>1/3 अंक</b> कटेगा।</li><li>Class 10 Chapter 1 - Chemical Reactions and Equations</li><li>BPSC TRE 4 Pattern</li></div>
+<button class="btn" onclick="start()">START TEST</button>
+</div>
+
+<div id="page2">
+<div class="gHead"><b>BPSC TRE 4 • Ch-1</b><span id="qc">Q1/10</span></div>
+<div class="qArea"><div id="qt" style="font-weight:800;font-size:14.5px"></div><div id="op"></div></div>
+<div class="btm"><button onclick="prev()">← Prev</button><button style="background:#16a34a;color:#fff;border:none;flex:1;border-radius:12px;font-weight:900" onclick="next()">Next →</button></div>
+</div>
+
+<div id="page3" style="background:#0a2a12;min-height:100vh">
+<div style="background:#fff;padding:12px"><b>Result • BPSC TRE 4 • Class 10 Ch1</b></div>
+<div class="completed"><b>Completed!</b><div class="marks" id="fMarks">0 Marks</div><div id="fBreak" style="font-size:12px;margin-top:6px"></div></div>
+<div style="margin:12px;background:#fff;border-radius:12px;padding:12px;font-size:13px">Correct: <b id="c1">0</b> (+1) | Wrong: <b id="w1">0</b> (-0.33) | Skip: <b id="s1">0</b></div>
+<div id="analysis" style="margin:12px"></div>
+<button onclick="location.reload()" style="margin:12px;width:calc(100% - 24px);padding:14px;border-radius:12px;background:#0f5d2f;color:#fff;border:none;font-weight:900">BACK TO HOME</button>
+</div>
+
+</div>
+<script>
+const Qs=[
+{q:"रासायनिक अभिक्रिया में क्या होता है? (What happens in chemical reaction?)",o:["पदार्थ की पहचान बदलती है","रंग नहीं बदलता","तापमान स्थिर रहता है","कुछ नहीं होता"],a:0,e:"रासायनिक अभिक्रिया में पदार्थ की प्रकृति और पहचान बदल जाती है।"},
+{q:"जिंक + हाइड्रोक्लोरिक अम्ल → ? कौन सी गैस निकलती है? Zn + 2HCl → ?",o:["Oxygen (O2)","Hydrogen (H2)","Nitrogen (N2)","CO2"],a:1,e:"Zn + 2HCl → ZnCl2 + H2↑, हाइड्रोजन गैस निकलती है।"},
+{q:"CaO + H2O → Ca(OH)2 यह कौन सी अभिक्रिया है?",o:["संयोजन (Combination)","वियोजन (Decomposition)","विस्थापन (Displacement)","उभय अपघटन"],a:0,e:"दो पदार्थ मिलकर एक पदार्थ बनाते हैं - संयोजन अभिक्रिया।"},
+{q:"संतुलित समीकरण में क्या बराबर होता है?",o:["अणुओं की संख्या","परमाणुओं की संख्या","आयतन","दाब"],a:1,e:"संतुलित समीकरण में दोनों तरफ प्रत्येक तत्व के परमाणुओं की संख्या बराबर होती है।"},
+{q:"BaCl2 + Na2SO4 → BaSO4 + 2NaCl में सफेद अवक्षेप किसका है?",o:["NaCl","BaSO4","BaCl2","Na2SO4"],a:1,e:"BaSO4 (बेरियम सल्फेट) सफेद अवक्षेप बनाता है।"},
+{q:"श्वसन (Respiration) किस प्रकार की अभिक्रिया है?",o:["ऊष्माक्षेपी (Exothermic)","ऊष्माशोषी (Endothermic)","विस्थापन","अवक्षेपण"],a:0,e:"श्वसन में ऊर्जा निकलती है, इसलिए यह ऊष्माक्षेपी है।"},
+{q:"विकृतगंधिता (Rancidity) को कैसे रोका जाता है?",o:["एंटीऑक्सीडेंट मिलाकर","पानी मिलाकर","गर्म करके","ठंडा करके"],a:0,e:"एंटीऑक्सीडेंट, नाइट्रोजन भरकर, एयर टाइट डब्बे में रखकर रैंसिडिटी रोकते हैं।"},
+{q:"ऑक्सीकरण (Oxidation) का अर्थ है?",o:["ऑक्सीजन का जुड़ना","हाइड्रोजन का जुड़ना","ऑक्सीजन का निकलना","कुछ नहीं"],a:0,e:"ऑक्सीकरण = ऑक्सीजन का जुड़ना या हाइड्रोजन का निकलना।"},
+{q:"बिना बुझा चूना (Quick Lime) का सूत्र क्या है?",o:["Ca(OH)2","CaO","CaCO3","CaCl2"],a:1,e:"Quick Lime = CaO, Slaked Lime = Ca(OH)2"},
+{q:"Fe + CuSO4 → FeSO4 + Cu यह कौन सी अभिक्रिया है?",o:["संयोजन","वियोजन","विस्थापन (Displacement)","द्विविस्थापन"],a:2,e:"Fe अधिक क्रियाशील है, Cu को विस्थापित करता है - विस्थापन अभिक्रिया।"},
+];
+let cur=0,ans=Array(10).fill(null);
+function start(){page1.style.display='none';page2.style.display='block';render();}
+function render(){qc.innerText=`Q${cur+1}/10`;qt.innerText=`Q${cur+1}. ${Qs[cur].q}`;let h="";Qs[cur].o.forEach((t,i)=>{h+=`<div class="opt ${ans[cur]==i?'sel':''}" onclick="pick(${i})">${String.fromCharCode(65+i)}. ${t}</div>`});op.innerHTML=h;}
+function pick(i){ans[cur]=i;if(cur<9){cur++;render();}else{result();}}
+function next(){if(cur<9){cur++;render();}else{result();}}
+function prev(){if(cur>0){cur--;render();}}
+function result(){let c=0,w=0,s=0;ans.forEach((a,i)=>{if(a===null)s++;else if(a===Qs[i].a)c++;else w++;});let total=c*1-w*(1/3);total=Number(total.toFixed(2));if(total<0)total=0;page2.style.display='none';page3.style.display='block';fMarks.innerText=`${total} / 10 Marks`;fBreak.innerText=`${c} Sahi ×1 = ${c} | ${w} Galat ×1/3 = -${(w/3).toFixed(2)} | Final = ${total}`;c1.innerText=c;w1.innerText=w;s1.innerText=s;let html="";Qs.forEach((q,i)=>{let ok=ans[i]===q.a;let u=ans[i]!==null?q.o[ans[i]]:"Not Attempted";html+=`<div style="background:#fff;border-radius:12px;padding:12px;margin:8px 0"><span style="background:#0f5d2f;color:#fff;font-size:10px;padding:3px 6px;border-radius:4px">Q${i+1} ${ok?'+1':'-0.33'}</span><div style="font-weight:700;margin-top:5px;font-size:13px">${q.q}</div><div style="font-size:12px;color:#b91c1c;margin-top:4px">Your: ${u}</div><div style="font-size:12px;color:#0f6d3a">Correct: ${q.o[q.a]}</div><div style="background:#fef3c7;border-radius:8px;padding:8px;margin-top:6px;font-size:11px">💡 ${q.e}</div></div>`});analysis.innerHTML=html;}
+</script>
+</body>
+</html>
